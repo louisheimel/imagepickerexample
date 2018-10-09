@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
+import ImagePicker from './components/ImagePicker/ImagePicker.js';
 import './App.css';
+
 
 class App extends Component {
   state = {
@@ -17,14 +19,12 @@ class App extends Component {
   }
 
   render() {
-    return (
-      <div className="App">
-        <input onChange={this.handleInput} value={this.state.userInput} />
-        <button onClick={this.getUserInput}>Submit Url</button>
-        {/* here's a sample image: http://placekitten.com/200/300 */}
-        <img src={this.state.userTyped} />
-      </div>
-    );
+    return <ImagePicker
+      handleInput={this.handleInput}
+      userInput={this.state.userInput}
+      getUserInput={this.getUserInput}
+      userTyped={this.state.userTyped}
+    />;
   }
 }
 
